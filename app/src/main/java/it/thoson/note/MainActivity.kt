@@ -1,46 +1,33 @@
 package it.thoson.note
 
+import MyApp
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
+import androidx.compose.material3.darkColorScheme
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import it.thoson.note.ui.theme.NoteTheme
+import it.thoson.note.ui.theme.AppTheme
+import it.thoson.note.ui.theme.DarkBlack
+import it.thoson.note.ui.theme.Primary
 
+private val DarkColorScheme = darkColorScheme(
+    primary = Primary,
+    background = DarkBlack,
+)
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            NoteTheme {
-                // A surface container using the 'background' color from the theme
+            AppTheme {
                 Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
+                    modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background
                 ) {
-                    Greeting("Android")
+                    MyApp()
                 }
             }
         }
-    }
-}
-
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    NoteTheme {
-        Greeting("Android")
     }
 }
